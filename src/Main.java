@@ -16,7 +16,14 @@ public class Main {
         assertResult(AUTMath.multiply(3, 4), 12);
         assertResult(AUTMath.multiply(-3, 5), -15);
         assertResult(AUTMath.divide(8, 4), 2);
-        assertResult(AUTMath.divide(4, 0), 4);
+        // هندل کردن تقسیم بر صفر
+        try {
+            AUTMath.divide(4, 0);
+            System.out.println("\nAssertionError: Expected ArithmeticException");
+            System.exit(1);
+        } catch (ArithmeticException e) {
+            System.out.print('.'); // تست پاس شد
+        }
         assertResult(AUTMath.factorial(4), 24);
         assertResult(AUTMath.pow(2, 4), 16);
     }
